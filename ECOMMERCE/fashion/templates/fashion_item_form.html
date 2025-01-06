@@ -1,0 +1,61 @@
+<h1 style="font-family: Arial, sans-serif; color: #2c3e50; text-align: center; margin-top: 50px;">
+    {% if item %}Edit{% else %}Create{% endif %} Fashion Item
+</h1>
+
+<div style="max-width: 600px; margin: 30px auto; padding: 30px; background-color: #ecf0f1; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+    <form method="post">
+        {% csrf_token %}
+        <div style="margin-bottom: 15px;">
+            <label for="name" style="font-family: Arial, sans-serif; font-size: 16px; color: #2c3e50;">Name:</label>
+            <input type="text" id="name" name="name" value="{{ item.name|default:'' }}" required 
+                   style="width: 100%; padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid #bdc3c7; margin-top: 5px; box-sizing: border-box;">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <label for="brand" style="font-family: Arial, sans-serif; font-size: 16px; color: #2c3e50;">Brand:</label>
+            <input type="text" id="brand" name="brand" value="{{ item.brand|default:'' }}" required 
+                   style="width: 100%; padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid #bdc3c7; margin-top: 5px; box-sizing: border-box;">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <label for="category" style="font-family: Arial, sans-serif; font-size: 16px; color: #2c3e50;">Category:</label>
+            <input type="text" id="category" name="category" value="{{ item.category|default:'' }}" required 
+                   style="width: 100%; padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid #bdc3c7; margin-top: 5px; box-sizing: border-box;">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <label for="price" style="font-family: Arial, sans-serif; font-size: 16px; color: #2c3e50;">Price:</label>
+            <input type="number" id="price" name="price" step="0.01" value="{{ item.price|default:'' }}" required 
+                   style="width: 100%; padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid #bdc3c7; margin-top: 5px; box-sizing: border-box;">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <label for="stock_quantity" style="font-family: Arial, sans-serif; font-size: 16px; color: #2c3e50;">Stock Quantity:</label>
+            <input type="number" id="stock_quantity" name="stock_quantity" value="{{ item.stock_quantity|default:'' }}" required 
+                   style="width: 100%; padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid #bdc3c7; margin-top: 5px; box-sizing: border-box;">
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <button type="submit" style="background-color: #3498db; color: white; padding: 12px 20px; border-radius: 5px; font-size: 16px; border: none; cursor: pointer; transition: background-color 0.3s ease;">
+                Save
+            </button>
+        </div>
+    </form>
+
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="{% url 'fashion_item_list' %}" style="color: #3498db; font-size: 16px; text-decoration: none; border: 2px solid #3498db; padding: 10px 20px; border-radius: 5px; transition: background-color 0.3s ease;">
+            Cancel
+        </a>
+    </div>
+</div>
+
+<style>
+    /* Adding hover effect for buttons */
+    button:hover {
+        background-color: #2980b9;
+    }
+
+    a:hover {
+        background-color: #ecf0f1;
+    }
+</style>

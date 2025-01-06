@@ -1,0 +1,49 @@
+<h1 style="font-family: Arial, sans-serif; color: #2c3e50; text-align: center; margin-top: 50px;">Fashion Items</h1>
+
+<div style="max-width: 800px; margin: 30px auto; padding: 30px; background-color: #ecf0f1; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+    <a href="{% url 'fashion_item_create' %}" 
+       style="display: block; text-align: center; background-color: #3498db; color: white; padding: 12px 20px; border-radius: 5px; font-size: 16px; text-decoration: none; transition: background-color 0.3s ease; margin-bottom: 20px;">
+       Add New Item
+    </a>
+    
+    <ul style="list-style-type: none; padding: 0; font-family: Arial, sans-serif; color: #2c3e50;">
+        {% for item in items %}
+        <li style="background-color: #ffffff; padding: 15px; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <a href="{% url 'fashion_item_detail' item.pk %}" 
+                   style="font-size: 18px; color: #2980b9; text-decoration: none; font-weight: bold; margin-right: 10px;">
+                   {{ item.name }}
+                </a>
+                - {{ item.brand }} - {{ item.category }} - ${{ item.price }}
+            </div>
+            
+            <div>
+                <a href="{% url 'fashion_item_update' item.pk %}" 
+                   style="color: #3498db; font-size: 14px; text-decoration: none; margin-right: 10px; transition: color 0.3s ease;">
+                   Edit
+                </a>
+                <a href="{% url 'fashion_item_delete' item.pk %}" 
+                   style="color: #e74c3c; font-size: 14px; text-decoration: none; transition: color 0.3s ease;">
+                   Delete
+                </a>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<style>
+    /* Adding hover effect for links */
+    a:hover {
+        text-decoration: underline;
+    }
+    
+    /* Adding hover effect for Edit and Delete links */
+    .edit-link:hover {
+        color: #2980b9;
+    }
+    
+    .delete-link:hover {
+        color: #c0392b;
+    }
+</style>

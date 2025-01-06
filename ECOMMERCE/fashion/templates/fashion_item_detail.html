@@ -1,0 +1,38 @@
+<h1 style="font-family: Arial, sans-serif; color: #2c3e50; text-align: center; margin-top: 50px;">{{ item.name }}</h1>
+
+<div style="text-align: center; background-color: #ecf0f1; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-top: 30px; max-width: 800px; margin-left: auto; margin-right: auto;">
+    <p style="font-family: Arial, sans-serif; font-size: 18px; color: #7f8c8d;">
+        <strong>Brand:</strong> <span style="color: #2c3e50;">{{ item.brand }}</span>
+    </p>
+    <p style="font-family: Arial, sans-serif; font-size: 18px; color: #7f8c8d;">
+        <strong>Category:</strong> <span style="color: #2c3e50;">{{ item.category }}</span>
+    </p>
+    <p style="font-family: Arial, sans-serif; font-size: 18px; color: #7f8c8d;">
+        <strong>Price:</strong> <span style="color: #2c3e50;">${{ item.price }}</span>
+    </p>
+    <p style="font-family: Arial, sans-serif; font-size: 18px; color: #7f8c8d;">
+        <strong>Stock Quantity:</strong> <span style="color: #2c3e50;">{{ item.stock_quantity }}</span>
+    </p>
+</div>
+
+<div style="text-align: center; margin-top: 30px;">
+    <a href="{% url 'fashion_item_update' item.pk %}" 
+       style="text-decoration: none; background-color: #f39c12; color: white; padding: 10px 20px; border-radius: 5px; font-size: 16px; transition: background-color 0.3s ease; margin-right: 20px; display: inline-block;">
+        Edit
+    </a>
+    <a href="{% url 'fashion_item_list' %}" 
+       style="text-decoration: none; background-color: #3498db; color: white; padding: 10px 20px; border-radius: 5px; font-size: 16px; transition: background-color 0.3s ease; display: inline-block;">
+        Back to List
+    </a>
+</div>
+
+<style>
+    /* Adding hover effects for buttons */
+    a:hover {
+        background-color: #e67e22;
+    }
+
+    .button:hover {
+        background-color: #2980b9;
+    }
+</style>
